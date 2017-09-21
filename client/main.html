@@ -1,0 +1,51 @@
+<head>
+  <title>messageboard</title>
+</head>
+
+<body>
+  <div class="container">
+    
+      
+      <div class="row">
+        <div class="col-xs-12">
+            {{ > loginButtons}}
+            <h1>Message Board</h1>
+        </div>
+      </div>
+        <strong>{{ > newEntry }}</strong>
+        {{ > listing }}
+  </div>
+</body>
+    
+
+
+
+<template name="newEntry">
+  <div class="row">
+      <div class="col-xs-12">
+          <form id="entryForm" >
+              <div class="form-group">
+              <textarea id="content" class="form-control" placeholder="Enter new message" ></textarea>
+              <div>
+                <br />
+                  <button type="submit" class="btn btn-success btn-lg btn-block">Save</button>
+              </div>
+              
+              </div>
+          </form>
+      </div>
+  </div>
+
+</template>
+
+<template name="listing">
+<div class="row">
+<div class="col-xs-12">
+  <ul class="list-group">
+    {{ #each entries }}
+    <li class="list-group-item"><span class="colored">{{username}}:</span> {{content}} - {{formatDate}}</li>
+    {{ /each }}
+  </ul>
+  </div>
+</div>
+</template>
